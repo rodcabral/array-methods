@@ -36,3 +36,22 @@ const usingFilter = data.customFilter((d) => {
 
 console.log(usingFilter);
 
+// Reduce
+
+Array.prototype.customReduce = function(callback, initial) {
+    let accumulator = initial;
+
+    for(let i = 0; i < this.length; i++) {
+        if(accumulator == undefined) {
+            accumulator = this[i];
+        } else {
+            accumulator = callback(accumulator, this[i]);
+        }
+    }
+
+    return accumulator;
+}
+
+const usingReduce = data.customReduce((acc, curr) => acc + curr);
+
+console.log(usingReduce);
