@@ -6,7 +6,7 @@ Array.prototype.customMap = function(callback) {
     const newArr = [];
     
     for(let i = 0; i < this.length; i++) {
-        newArr.push(callback(this[i]));
+        newArr.push(callback(this[i], i));
     }
 
     return newArr;
@@ -22,7 +22,7 @@ Array.prototype.customFilter = function(callback) {
     const newArr = [];
 
     for(let i = 0; i < this.length; i++) {
-        if(callback(this[i])) {
+        if(callback(this[i]), i) {
             newArr.push(this[i]);
         }
     }
@@ -45,7 +45,7 @@ Array.prototype.customReduce = function(callback, initial) {
         if(accumulator == undefined) {
             accumulator = this[i];
         } else {
-            accumulator = callback(accumulator, this[i]);
+            accumulator = callback(accumulator, this[i], i);
         }
     }
 
