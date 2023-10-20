@@ -15,3 +15,24 @@ Array.prototype.customMap = function(callback) {
 const usingMap = data.customMap((d) => d + 1);
 
 console.log(usingMap);
+
+// Filter
+
+Array.prototype.customFilter = function(callback) {
+    const newArr = [];
+
+    for(let i = 0; i < this.length; i++) {
+        if(callback(this[i])) {
+            newArr.push(this[i]);
+        }
+    }
+
+    return newArr;
+}
+
+const usingFilter = data.customFilter((d) => {
+    return d == 60;
+})
+
+console.log(usingFilter);
+
